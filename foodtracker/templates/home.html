@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{% include 'includes/navbar.html' %}
+
+<div class="container theme-showcase col-sm-6 col-sm-offset-3" role="main">
+
+  <div class="row">
+    <div>
+      <form method="POST" action="/">
+        <div class="form-group">
+          <label for="new-day">New Day</label>
+          <input type="date" name="date" class="form-control" id="new-day">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+      <div class="page-header"></div>
+
+      {% for res in pretty_results %}
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{ res.pretty_date }}</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-pills" role="tablist">
+            <li><a>Protein: <span class="badge">{{ res.protein }}</span></a></li>
+            <li><a>Carbohydates: <span class="badge">{{ res.carbohydrates}}</span></a></li>
+            <li><a>Fat: <span class="badge">{{ res.fat }}</span></a></li>
+            <li><a>Calories: <span class="badge">{{ res.calories }}</span></a></li>
+            <li><a href="{{ url_for('view_day',date=res.entry_date) }}" type="button" class="btn btn-link">View Detail</a></li>
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
