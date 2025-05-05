@@ -1,0 +1,53 @@
+console log
+
+>>> with app.app_context():
+...     db.create_all()
+...
+>>> exit()
+now exiting InteractiveConsole...
+PS C:\Users\berta\Desktop\egyetem\szakdolgozat\programozas\fullstack2\sqlalchemy2> flask shell
+Python 3.13.2 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:49:14) [MSC v.1929 64 bit (AMD64)] on win32
+App: app
+Instance: C:\Users\berta\Desktop\egyetem\szakdolgozat\programozas\fullstack2\sqlalchemy2\instance
+>>> from app import db,Product,Orders,Customer
+>>> with app.app_context():
+...
+...     john = Customer(first_name='John',last_name='Dave', address='123 Street Street', city='Miami', postcode='12345',email='johndave@msn.com')
+...
+>>> john
+<Customer (transient 1373722471760)>
+>>> db.session.add(john)
+>>> db.session.commit()
+>>> with app.app_context():
+...     computer = Product(name='Computer', price=80)
+...
+>>> db.session.add(computer)
+>>> db.session.commit()
+>>> with app.app_context():
+...     phone = Product(name='phone', price=20)
+... 
+>>> db.session.add(phone)
+>>> db.session.commit()
+>>> with app.app_context():
+...     order = Orders(cupon_code='FREESHIPPING', customer_id=1, products=[computer,phone])
+... 
+>>> db.session.add(order)  
+>>> db.session.commit()    
+>>> 
+>>> with app.app_context():
+...     john = Customer.query.filter_by(id=1).first()
+...     john.address = '567 Street Street'
+...     db.session.commit()
+... 
+>>> with app.app_context():
+...     ashley = Customer(first_name='ashley', last_name='Smith', address='123 Street Street', city='Miami',postcode='12345',email='ashleysmith@msn.com')
+...     db.session.add(ashley)
+...     db.session.commit()
+... 
+>>> with app.app_context():
+...     ashley = Customer.query.filter_by(first_name='ashley').first()
+...     db.session.delete(ashley)
+...     db.session.commit()
+... 
+>>>                              
+
