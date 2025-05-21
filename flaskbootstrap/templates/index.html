@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+<!--WOW!!!!! https://pythonhosted.org/Flask-Bootstrap/basic-usage.html-->
+<!--Macros!!!!!(WTForms support https://pythonhosted.org/Flask-Bootstrap/forms.html)-->
+<!--Megkérdezni Tanár Urat, hogy ezeket használhatom-e vagy csináljam meg magamnak-->
+
+{% block title %}
+Title
+{% endblock %}
+
+{% block content %}
+<h3>This is inside the content block</h3>
+<p>Lorem ipsum, dolor si amet.</p>
+{% endblock %}
+
+<!-- the block tag overrides everithing that was in there, so we need to use the super() function -->
+{% block scripts %}
+{{ super() }}
+<script src="#"></script>
+{% endblock %}
+
