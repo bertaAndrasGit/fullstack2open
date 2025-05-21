@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{%from 'macros/renderfield.html' import renderfield %}
+
+
+{% block title %}
+<title>Dynamic | Register</title>
+{% endblock %}
+
+{% block main_content %}
+    <h1 class="login_header">Dynamic Register Form</h1>
+    <form class="form" novalidate action="#" method="POST">
+        {{ form.hidden_tag()}}
+        <div class="form_errors">
+                    <ul>
+                        {% for err in form.csrf_token.errors %}
+                            <li> {{ err }} </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+
+        <div class="form_holder">
+
+            {{ renderfield(form.name) }}
+
+            {{ renderfield(form.password) }}
+
+            {{ renderfield(form.entrydate) }}
+
+            {% for name in names %}
+                {{ renderfield(form[name]) }}
+            {% endfor %}
+
+        </div>
+        
+        
+        <div class="button__container">
+            <button class="login__button">Dynamic Register (WOW!!!)</button>
+        </div>
+
+
+    </form>
+
+
+{% endblock %}

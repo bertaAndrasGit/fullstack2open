@@ -1,0 +1,22 @@
+{% macro renderfield(field) %}
+
+<div class="form_holder_fieldlabel">
+
+                <div class="form__field__label">
+                    {{ field.label }}
+                </div>
+                
+                <div class="form__field">
+                    {{ field(**kwargs)|safe }}
+                </div>
+
+            </div>
+            <div class="form_errors">
+                    <ul>
+                        {% for err in field.errors %}
+                            <li> {{ err }} </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+
+{% endmacro %}

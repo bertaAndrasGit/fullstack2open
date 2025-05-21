@@ -1,0 +1,157 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+  - We added padding: 0 ourselves to remove unwanted padding (e.g. from lists)
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body{
+    background-color: rgb(255, 242, 201);
+}
+
+
+.login_header{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto; 
+    padding-bottom: 20px;
+}
+
+
+
+.form_holder{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 239, 188);
+    margin: 0 10rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: solid 2px black;
+}
+
+
+.form_holder_fieldlabel {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+
+.form__field__label {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0.5rem; 
+    text-transform: uppercase;
+    margin-top: 1rem;
+    
+}
+
+.form__field{
+  display: flex;
+  justify-content: center;
+}
+
+.form_errors{
+    display:flex;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: rgb(218, 28, 28);
+    word-break: break-all;
+    padding: 0 0.5rem;
+}
+
+ul{
+    list-style-type: none; 
+   
+}
+
+
+
+.button__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__button {
+    display: flex;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    background-color: blanchedalmond;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 10%;
+    margin-bottom: 5rem;
+}
+
+
+/*
+body * {
+        border: 1px dashed red;
+    } */
+      
+
+

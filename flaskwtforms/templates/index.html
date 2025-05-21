@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{%from 'macros/renderfield.html' import renderfield %}
+
+
+{% block title %}
+<title>Index | Register</title>
+{% endblock %}
+
+{% block main_content %}
+    <h1 class="login_header">The Longest Register Form</h1>
+    <form class="form" novalidate action="#" method="POST">
+        {{ form.hidden_tag()}}
+        <div class="form_errors">
+                    <ul>
+                        {% for err in form.csrf_token.errors %}
+                            <li> {{ err }} </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+
+        <div class="form_holder">
+
+
+
+            {{ renderfield(form.email) }}
+
+            {{ renderfield(form.first_name) }}
+
+            {{ renderfield(form.last_name) }}
+            
+            {{ renderfield(form.username) }}
+
+            {{ renderfield(form.password) }}
+
+            {{ renderfield(form.age) }}
+
+            {{ renderfield(form.yesorno) }}
+            
+            {{ renderfield(form.home_phone) }}
+            
+            {% if form.mobile_phone %}
+                {{ renderfield(form.mobile_phone) }}
+            {% endif %}
+            
+            {% for field in form.years %}
+                {{ renderfield(field) }}
+            {% endfor %}
+
+            <!--{{ form.recaptcha }}-->
+
+        </div>
+        
+        
+        <div class="button__container">
+            <button class="login__button">Register</button>
+        </div>
+
+
+    </form>
+
+
+{% endblock %}
